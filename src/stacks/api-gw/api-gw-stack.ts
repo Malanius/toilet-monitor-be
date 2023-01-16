@@ -16,6 +16,7 @@ export class ApiGw extends cdk.Stack {
     const api = new apigateway.RestApi(this, 'api', {
       restApiName: `${appName}-${appEnv}`,
       endpointTypes: [apigateway.EndpointType.EDGE],
+      apiKeySourceType: apigateway.ApiKeySourceType.HEADER,
       defaultCorsPreflightOptions: {
         allowOrigins: apigateway.Cors.ALL_ORIGINS,
         allowMethods: apigateway.Cors.ALL_METHODS,
@@ -27,6 +28,15 @@ export class ApiGw extends cdk.Stack {
       },
     });
     this.api = api;
+
+    // API keys don't work without a usage plan
+    const plan = api.addUsagePlan('ApiUsagePlan', {
+      name: `${appName}-${appEnv}-usage-plan`,
+    });
+
+    plan.addApiStage({
+      stage: api.deploymentStage,
+    });
 
     const pingResource = api.root.addResource('ping');
     const pingIntegration = new apigateway.MockIntegration({
@@ -40,6 +50,7 @@ export class ApiGw extends cdk.Stack {
       ],
     });
     pingResource.addMethod('GET', pingIntegration, {
+      apiKeyRequired: true,
       methodResponses: [
         {
           statusCode: '204',
