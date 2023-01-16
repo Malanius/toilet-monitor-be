@@ -2,6 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import { Construct } from 'constructs';
 
+import { PingFunction } from './ping-function';
 import { AppInfo } from '../../constants/app-info';
 
 export interface StackNameProps extends cdk.StackProps, AppInfo {}
@@ -39,25 +40,15 @@ export class ApiGw extends cdk.Stack {
     });
 
     const pingResource = api.root.addResource('ping');
-    const pingIntegration = new apigateway.MockIntegration({
-      requestTemplates: {
-        'application/json': JSON.stringify({
-          statusCode: 200,
-          apiKey: '$context.identity.apiKey',
-        }),
-      },
+    const pingHandler = new PingFunction(this, 'PingHandler', {
+      functionName: `${appName}-${appEnv}-ping`,
+    });
+    const pingIntegration = new apigateway.LambdaIntegration(pingHandler, {
+      allowTestInvoke: true,
       passthroughBehavior: apigateway.PassthroughBehavior.NEVER,
-      integrationResponses: [
-        {
-          statusCode: '200',
-          responseTemplates: {
-            'application/json': JSON.stringify({
-              status: 'ok',
-              usedKey: '$context.identity.apiKey',
-            }),
-          },
-        },
-      ],
+      requestTemplates: {
+        'application/json': '{"statusCode": 200}',
+      },
     });
     pingResource.addMethod('GET', pingIntegration, {
       apiKeyRequired: true,

@@ -11,6 +11,7 @@
     ".projen/tasks.json",
     "cdk.json",
     "LICENSE",
+    "src/stacks/api-gw/ping-function.ts",
     "tsconfig.dev.json",
     "tsconfig.json"
   ],
