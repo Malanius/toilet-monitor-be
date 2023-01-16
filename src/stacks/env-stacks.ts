@@ -1,15 +1,10 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
+import { ApiGw } from './api-gw/api-gw-stack';
 import { AppInfo } from '../constants/app-info';
 
 interface EnvStackProps extends AppInfo {}
-
-class PlaceholderStact extends cdk.Stack {
-  constructor(scope: Construct, id: string, props: cdk.StackProps) {
-    super(scope, id, props);
-  }
-}
 
 export class EnvStacks extends Construct {
   constructor(scope: Construct, id: string, props: EnvStackProps) {
@@ -17,10 +12,11 @@ export class EnvStacks extends Construct {
 
     const { appName, appEnv } = props;
 
-    new PlaceholderStact(this, 'placeholder', {
-      stackName: `${appName}-${appEnv}-placeholder`,
+    new ApiGw(this, 'api-gw', {
+      ...props,
+      stackName: `${appName}-${appEnv}-api-gw`,
       tags: {
-        component: 'placeholder',
+        component: 'api-gw',
       },
     });
 
