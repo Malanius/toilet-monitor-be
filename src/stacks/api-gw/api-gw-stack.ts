@@ -1,8 +1,10 @@
 import * as cdk from 'aws-cdk-lib';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
+import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 
 import { PingFunction } from './ping-function';
+
 import { AppInfo } from '../../constants/app-info';
 
 export interface StackNameProps extends cdk.StackProps, AppInfo {}
@@ -13,6 +15,8 @@ export class ApiGw extends cdk.Stack {
     super(scope, id, props);
 
     const { appName, appEnv } = props;
+    const region = cdk.Stack.of(this).region;
+    const partition = cdk.Stack.of(this).partition;
 
     const api = new apigateway.RestApi(this, 'api', {
       restApiName: `${appName}-${appEnv}`,
@@ -39,10 +43,19 @@ export class ApiGw extends cdk.Stack {
       stage: api.deploymentStage,
     });
 
-    const pingResource = api.root.addResource('ping');
     const pingHandler = new PingFunction(this, 'PingHandler', {
       functionName: `${appName}-${appEnv}-ping`,
     });
+    pingHandler.addToRolePolicy(
+      new iam.PolicyStatement({
+        effect: iam.Effect.ALLOW,
+        actions: ['apigateway:GET'],
+        resources: [`arn:${partition}:apigateway:${region}::/apikeys/*`],
+      })
+    );
+
+    // /ping
+    const pingResource = api.root.addResource('ping');
     const pingIntegration = new apigateway.LambdaIntegration(pingHandler, {
       allowTestInvoke: true,
       passthroughBehavior: apigateway.PassthroughBehavior.NEVER,
