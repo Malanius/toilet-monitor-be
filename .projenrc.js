@@ -37,9 +37,10 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
   deps: [
     '@types/aws-lambda', // This has to be there so eslint doesn't complain on import
+    'aws-sdk',
   ],
 
-  devDeps: ['@types/aws-lambda', '@types/aws-sdk'],
+  devDeps: ['@types/aws-lambda'],
 
   context: {
     // Defaults for new CDK 2.60.0 app

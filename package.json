@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.109",
-    "@types/aws-sdk": "^2.7.0",
     "@types/jest": "^29.2.5",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
@@ -58,6 +57,7 @@
   "dependencies": {
     "@types/aws-lambda": "^8.10.109",
     "aws-cdk-lib": "^2.60.0",
+    "aws-sdk": "^2.1295.0",
     "constructs": "^10.0.5"
   },
   "license": "MIT",
