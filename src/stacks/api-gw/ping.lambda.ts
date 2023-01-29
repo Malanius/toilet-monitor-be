@@ -1,35 +1,26 @@
-import assert from 'assert';
-
 import { APIGatewayProxyHandler } from 'aws-lambda';
-import { APIGateway } from 'aws-sdk';
-
-const apiGateway = new APIGateway();
+import { isValidApiKey } from '../../common/api-key-validation';
 
 export const handler: APIGatewayProxyHandler = async (event, context) => {
   console.log('event', event);
   console.log('context', context);
 
-  // TODO: exvtract key conversion to a separate function
   const callingKeyId = event.requestContext.identity.apiKeyId;
-  // TODO: replace asserts with proper validation
-  assert(callingKeyId, 'API key ID missing!');
-  console.log('callingKeyId', callingKeyId);
+  const keyValidation = await isValidApiKey(callingKeyId);
 
-  const keyDetails = await apiGateway
-    .getApiKey({ apiKey: callingKeyId })
-    .promise();
-
-  console.log('keyDetails', keyDetails);
-
-  // TODO: replace asserts with proper validation
-  assert(keyDetails, 'API key details missing!');
-  assert(keyDetails.name, 'API key name missing!');
-  assert(keyDetails.name.startsWith('toilet-'), 'API key name invalid!');
+  if (!keyValidation.isValid) {
+    return {
+      statusCode: 401,
+      body: JSON.stringify({
+        message: keyValidation.message,
+      }),
+    };
+  }
 
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: `Hello ${keyDetails.name}!`,
+      message: `Hello ${keyValidation.keyName}!`,
     }),
   };
 };
