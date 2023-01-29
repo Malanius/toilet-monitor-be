@@ -112,6 +112,14 @@
       "type": "runtime"
     },
     {
+      "name": "@middy/http-error-handler",
+      "type": "runtime"
+    },
+    {
+      "name": "@middy/util",
+      "type": "runtime"
+    },
+    {
       "name": "@types/aws-lambda",
       "type": "runtime"
     },

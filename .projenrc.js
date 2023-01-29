@@ -48,6 +48,8 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     '@aws-lambda-powertools/metrics',
     '@aws-lambda-powertools/tracer',
     '@middy/core',
+    '@middy/http-error-handler',
+    '@middy/util',
     '@types/aws-lambda',
     'aws-sdk',
   ],

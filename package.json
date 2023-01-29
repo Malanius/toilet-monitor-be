@@ -59,6 +59,8 @@
     "@aws-lambda-powertools/metrics": "^1.5.1",
     "@aws-lambda-powertools/tracer": "^1.5.1",
     "@middy/core": "*",
+    "@middy/http-error-handler": "*",
+    "@middy/util": "*",
     "@types/aws-lambda": "^8.10.110",
     "aws-cdk-lib": "^2.62.2",
     "aws-sdk": "^2.1304.0",
