@@ -6,6 +6,7 @@ import { Construct } from 'constructs';
 import { PingFunction } from './ping-function';
 
 import { AppInfo } from '../../constants/app-info';
+import { commonLambdaFunctionProps } from '../../common/lambda-props';
 
 export interface PingProps extends AppInfo {
   api: apigateway.RestApi;
@@ -21,7 +22,9 @@ export class Ping extends Construct {
 
     const pingHandler = new PingFunction(this, 'PingHandler', {
       functionName: `${appName}-${appEnv}-ping`,
+      ...commonLambdaFunctionProps,
     });
+
     pingHandler.addToRolePolicy(
       new iam.PolicyStatement({
         effect: iam.Effect.ALLOW,
