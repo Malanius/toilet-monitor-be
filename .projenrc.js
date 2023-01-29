@@ -2,7 +2,7 @@ const { awscdk } = require('projen');
 const { TrailingComma } = require('projen/lib/javascript');
 
 const project = new awscdk.AwsCdkTypeScriptApp({
-  cdkVersion: '2.60.0',
+  cdkVersion: '2.62.2',
   defaultReleaseBranch: 'main',
   name: 'toilet-monitor-be',
   github: false, // disable workflows for now
@@ -43,7 +43,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   devDeps: ['@types/aws-lambda'],
 
   context: {
-    // Defaults for new CDK 2.60.0 app
+    // Defaults for new CDK 2.62.2 app
     '@aws-cdk/aws-lambda:recognizeLayerVersion': true,
     '@aws-cdk/core:checkSecretUsage': true,
     '@aws-cdk/core:target-partitions': ['aws', 'aws-cn'],
@@ -62,6 +62,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     '@aws-cdk/aws-ecs:disableExplicitDeploymentControllerForCircuitBreaker': true,
     '@aws-cdk/aws-iam:importedRoleStackSafeDefaultPolicyName': true,
     '@aws-cdk/aws-s3:serverAccessLogsUseBucketPolicy': true,
+    '@aws-cdk/aws-route53-patters:useCertificate': true,
     '@aws-cdk/customresources:installLatestAwsSdkDefault': false,
   },
 });
