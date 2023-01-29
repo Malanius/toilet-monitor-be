@@ -38,7 +38,7 @@
       "description": "Create a JavaScript bundle from src/stacks/api-gw/ping.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/stacks/api-gw/ping.lambda.ts --target=\"node16\" --platform=\"node\" --outfile=\"assets/stacks/api-gw/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:aws-sdk --sourcemap"
+          "exec": "esbuild --bundle src/stacks/api-gw/ping.lambda.ts --target=\"node16\" --platform=\"node\" --outfile=\"assets/stacks/api-gw/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap"
         }
       ]
     },
@@ -47,7 +47,7 @@
       "description": "Continuously update the JavaScript bundle from src/stacks/api-gw/ping.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/stacks/api-gw/ping.lambda.ts --target=\"node16\" --platform=\"node\" --outfile=\"assets/stacks/api-gw/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:aws-sdk --sourcemap --watch"
+          "exec": "esbuild --bundle src/stacks/api-gw/ping.lambda.ts --target=\"node16\" --platform=\"node\" --outfile=\"assets/stacks/api-gw/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap --watch"
         }
       ]
     },

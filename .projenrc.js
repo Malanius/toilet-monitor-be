@@ -13,7 +13,13 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   lambdaOptions: {
     runtime: awscdk.LambdaRuntime.NODEJS_16_X,
     bundlingOptions: {
-      externals: ['aws-sdk'],
+      externals: [
+        '@aws-lambda-powertools/commons',
+        '@aws-lambda-powertools/logger',
+        '@aws-lambda-powertools/metrics',
+        '@aws-lambda-powertools/tracer',
+        'aws-sdk',
+      ],
       sourcemap: true,
     },
   },
@@ -36,11 +42,17 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   },
 
   deps: [
-    '@types/aws-lambda', // This has to be there so eslint doesn't complain on import
+    // Theese has to be there so eslint doesn't complain on import in lambda functions
+    '@aws-lambda-powertools/commons',
+    '@aws-lambda-powertools/logger',
+    '@aws-lambda-powertools/metrics',
+    '@aws-lambda-powertools/tracer',
+    '@middy/core',
+    '@types/aws-lambda',
     'aws-sdk',
   ],
 
-  devDeps: ['@types/aws-lambda'],
+  devDeps: [],
 
   context: {
     // Defaults for new CDK 2.62.2 app

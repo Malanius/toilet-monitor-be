@@ -1,12 +1,14 @@
 import * as cdk from 'aws-cdk-lib';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as iam from 'aws-cdk-lib/aws-iam';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
 import { PingFunction } from './ping-function';
 
-import { AppInfo } from '../../constants/app-info';
 import { commonLambdaFunctionProps } from '../../common/lambda-props';
+import { powertoolsConfig } from '../../common/powertools-config';
+import { AppInfo } from '../../constants/app-info';
 
 export interface PingProps extends AppInfo {
   api: apigateway.RestApi;
@@ -20,9 +22,19 @@ export class Ping extends Construct {
     const region = cdk.Stack.of(this).region;
     const partition = cdk.Stack.of(this).partition;
 
+    const powertoolsLayer = lambda.LayerVersion.fromLayerVersionArn(
+      this,
+      'PowertoolsLayer',
+      `arn:aws:lambda:${region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:7`
+    );
+
     const pingHandler = new PingFunction(this, 'PingHandler', {
       functionName: `${appName}-${appEnv}-ping`,
       ...commonLambdaFunctionProps,
+      layers: [powertoolsLayer],
+      environment: {
+        ...powertoolsConfig(appName, appEnv, 'ping'),
+      },
     });
 
     pingHandler.addToRolePolicy(
