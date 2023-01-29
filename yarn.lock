@@ -937,7 +937,7 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.3.tgz#472eaab5f15c1ffdd7f8628bd4c4f753995ec79e"
   integrity sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==
 
-"@types/aws-lambda@^8.10.109":
+"@types/aws-lambda@^8.10.110":
   version "8.10.110"
   resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.110.tgz#32a1f9d40b855d69830243492bbb6408098f4c88"
   integrity sha512-r6egf2Cwv/JaFTTrF9OXFVUB3j/SXTgM9BwrlbBRjWAa2Tu6GWoDoLflppAZ8uSfbUJdXvC7Br3DjuN9pQ2NUQ==
@@ -1006,7 +1006,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^29.2.5":
+"@types/jest@^29.4.0":
   version "29.4.0"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.4.0.tgz#a8444ad1704493e84dbf07bb05990b275b3b9206"
   integrity sha512-VaywcGQ9tPorCX/Jkkni7RWGFfI11whqzs8dvxF41P17Z+z872thvEvlIbznjPJ02kl1HMX3LmLOonsj2n7HeQ==
@@ -1360,7 +1360,7 @@ aws-cdk@^2.62.2:
   optionalDependencies:
     fsevents "2.3.2"
 
-aws-sdk@^2.1295.0:
+aws-sdk@^2.1304.0:
   version "2.1304.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1304.0.tgz#92a57d96394185fbeb790a85e71c47154c1cd150"
   integrity sha512-9mf2uafa2M9yFC5IlMe85TIc7OUo1HSProCQWzpRmAAYhcSwmfbRyt02Wtr5YSVvJJPmcSgcyI92snsQR1c3nw==
@@ -2071,7 +2071,7 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild@^0.17.0:
+esbuild@^0.17.5:
   version "0.17.5"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.17.5.tgz#cd76d75700d49ac050ad9eedfbed777bd6a9d930"
   integrity sha512-Bu6WLCc9NMsNoMJUjGl3yBzTjVLXdysMltxQWiLAypP+/vQrf+3L1Xe8fCXzxaECus2cEJ9M7pk4yKatEwQMqQ==
@@ -2158,7 +2158,7 @@ eslint-module-utils@^2.7.4:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-import@^2.27.4:
+eslint-plugin-import@^2.27.5:
   version "2.27.5"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.27.5.tgz#876a6d03f52608a3e5bb439c2550588e51dd6c65"
   integrity sha512-LmEt3GVofgiGuiE+ORpnvP+kAm3h6MLZJ4Q5HCyHADofsb4VzXFsRiWj3c0OFiV+3DWFh0qg3v9gcPlfc3zRow==
@@ -3562,7 +3562,7 @@ jest-worker@^29.4.1:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^29.3.1:
+jest@^29.4.1:
   version "29.4.1"
   resolved "https://registry.yarnpkg.com/jest/-/jest-29.4.1.tgz#bb34baca8e05901b49c02c62f1183a6182ea1785"
   integrity sha512-cknimw7gAXPDOmj0QqztlxVtBVCw2lYY9CeIE5N6kD+kET1H4H79HSNISJmijb1HF+qk+G+ploJgiDi5k/fRlg==
@@ -4424,7 +4424,7 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.67.0:
+projen@^0.67.21:
   version "0.67.21"
   resolved "https://registry.yarnpkg.com/projen/-/projen-0.67.21.tgz#9beaf0063f3db81ad301d5ff6b76bd0d2b33fc5d"
   integrity sha512-XQWHCnOgm+SSVdCscbVsF2wnmbtjWHT1hd7RuC4NH9LNjb1wPCkMbDnat4xswr/TxuX5jPwDH0A2DyyC7WrUWg==
