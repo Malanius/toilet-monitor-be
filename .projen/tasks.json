@@ -167,6 +167,22 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
+    "precommit": {
+      "name": "precommit",
+      "steps": [
+        {
+          "exec": "lint-staged"
+        }
+      ]
+    },
+    "prepare": {
+      "name": "prepare",
+      "steps": [
+        {
+          "exec": "husky install"
+        }
+      ]
+    },
     "synth": {
       "name": "synth",
       "description": "Synthesizes your cdk app into cdk.out",
@@ -218,19 +234,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,cz-conventional-changelog,husky,lint-staged'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,cz-conventional-changelog,husky,lint-staged'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,cz-conventional-changelog,husky,lint-staged'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,cz-conventional-changelog,husky,lint-staged'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,cz-conventional-changelog,husky,lint-staged'"
         },
         {
           "exec": "yarn install --check-files"

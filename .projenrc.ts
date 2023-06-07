@@ -44,6 +44,11 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     },
   },
 
+  scripts: {
+    precommit: 'lint-staged',
+    prepare: 'husky install',
+  },
+
   deps: [
     // Theese has to be there so eslint doesn't complain on import in lambda functions
     '@aws-lambda-powertools/commons',
@@ -57,7 +62,13 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     'aws-sdk',
   ],
 
-  devDeps: [],
+  devDeps: [
+    '@commitlint/cli@17.0.2',
+    '@commitlint/config-conventional@17.0.2',
+    'cz-conventional-changelog@3.3.0',
+    'husky@8.0.1',
+    'lint-staged@13.0.1',
+  ],
 
   context: {
     // Defaults for new CDK 2.62.2 app
