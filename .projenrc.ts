@@ -1,14 +1,18 @@
-const { awscdk } = require('projen');
-const { TrailingComma } = require('projen/lib/javascript');
+import { awscdk } from 'projen';
+import { TrailingComma } from 'projen/lib/javascript';
+
+const cdkVersion = '2.62.2';
 
 const project = new awscdk.AwsCdkTypeScriptApp({
-  cdkVersion: '2.62.2',
-  defaultReleaseBranch: 'main',
+  cdkVersion,
   name: 'toilet-monitor-be',
-  github: false, // disable workflows for now
-  license: 'MIT',
   authorName: 'Malanius Privierre',
   authorEmail: 'malaniusprivierre@gmail.com',
+  license: 'MIT',
+
+  defaultReleaseBranch: 'main',
+  github: false, // disable workflows for now
+  projenrcTs: true,
 
   lambdaOptions: {
     runtime: awscdk.LambdaRuntime.NODEJS_16_X,
@@ -31,7 +35,6 @@ const project = new awscdk.AwsCdkTypeScriptApp({
       bracketSpacing: true,
       trailingComma: TrailingComma.ES5,
     },
-    ignoreFiles: ['**/*.js', '!.projenrc.js', 'cdk.out/**'],
   },
 
   jest: true,
@@ -73,12 +76,18 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     '@aws-cdk/core:enablePartitionLiterals': true,
     '@aws-cdk/aws-events:eventsTargetQueueSameAccount': true,
     '@aws-cdk/aws-iam:standardizedServicePrincipals': true,
-    '@aws-cdk/aws-ecs:disableExplicitDeploymentControllerForCircuitBreaker': true,
+    '@aws-cdk/aws-ecs:disableExplicitDeploymentControllerForCircuitBreaker':
+      true,
     '@aws-cdk/aws-iam:importedRoleStackSafeDefaultPolicyName': true,
     '@aws-cdk/aws-s3:serverAccessLogsUseBucketPolicy': true,
     '@aws-cdk/aws-route53-patters:useCertificate': true,
     '@aws-cdk/customresources:installLatestAwsSdkDefault': false,
   },
+});
+
+const prettierIgnored = ['**/*.js', '!.projenrc.js', 'cdk.out/**'];
+prettierIgnored.forEach((pattern) => {
+  project.prettier?.addIgnorePattern(pattern);
 });
 
 project.synth();
