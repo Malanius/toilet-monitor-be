@@ -17,6 +17,15 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   github: false, // disable workflows for now
   projenrcTs: true,
 
+  tsconfig: {
+    compilerOptions: {
+      baseUrl: '.',
+      paths: {
+        '@*': ['src/*'],
+      },
+    },
+  },
+
   lambdaOptions: {
     runtime: awscdk.LambdaRuntime.NODEJS_18_X,
     bundlingOptions: {
@@ -115,5 +124,13 @@ const prettierIgnored = ['**/*.js', '!.projenrc.js', 'cdk.out/**'];
 prettierIgnored.forEach((pattern) => {
   project.prettier?.addIgnorePattern(pattern);
 });
+
+// There is no way to directly register modules in in projen
+// So having to use escape hatch to add tsconfig-paths/register
+const cdkJson = project.tryFindObjectFile('cdk.json');
+cdkJson?.addOverride(
+  'app',
+  'npx ts-node -r tsconfig-paths/register --prefer-ts-exts src/main.ts'
+);
 
 project.synth();

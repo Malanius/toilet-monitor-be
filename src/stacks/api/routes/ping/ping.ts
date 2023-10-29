@@ -6,12 +6,12 @@ import { Construct } from 'constructs';
 
 import { PingFunction } from './ping-function';
 
-import { commonLambdaFunctionProps } from '../../common/lambda-props';
+import { commonLambdaFunctionProps } from '@common/lambda-props';
 import {
   powertoolsConfig,
   powertoolsLayerArn,
-} from '../../common/powertools-config';
-import { AppInfo } from '../../constants/app-info';
+} from '@common/powertools-config';
+import { AppInfo } from '@constants/app-info';
 
 export interface PingProps extends AppInfo {
   api: apigateway.RestApi;

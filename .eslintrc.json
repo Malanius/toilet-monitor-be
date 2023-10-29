@@ -58,7 +58,7 @@
         "devDependencies": [
           "**/test/**",
           "**/build-tools/**",
-          "src/stacks/api-gw/ping.lambda.ts",
+          "src/stacks/api/routes/ping/ping.lambda.ts",
           ".projenrc.ts",
           "projenrc/**/*.ts"
         ],

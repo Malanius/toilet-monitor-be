@@ -10,16 +10,16 @@ export interface PingFunctionProps extends lambda.FunctionOptions {
 }
 
 /**
- * An AWS Lambda function which executes src/stacks/api-gw/ping.
+ * An AWS Lambda function which executes src/stacks/api/routes/ping/ping.
  */
 export class PingFunction extends lambda.Function {
   constructor(scope: Construct, id: string, props?: PingFunctionProps) {
     super(scope, id, {
-      description: 'src/stacks/api-gw/ping.lambda.ts',
+      description: 'src/stacks/api/routes/ping/ping.lambda.ts',
       ...props,
       runtime: new lambda.Runtime('nodejs18.x', lambda.RuntimeFamily.NODEJS),
       handler: 'index.handler',
-      code: lambda.Code.fromAsset(path.join(__dirname, '../../../assets/stacks/api-gw/ping.lambda')),
+      code: lambda.Code.fromAsset(path.join(__dirname, '../../../../../assets/stacks/api/routes/ping/ping.lambda')),
     });
     this.addEnvironment('AWS_NODEJS_CONNECTION_REUSE_ENABLED', '1', { removeInEdge: true });
   }

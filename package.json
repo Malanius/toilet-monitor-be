@@ -3,8 +3,8 @@
   "scripts": {
     "build": "npx projen build",
     "bundle": "npx projen bundle",
-    "bundle:stacks/api-gw/ping.lambda": "npx projen bundle:stacks/api-gw/ping.lambda",
-    "bundle:stacks/api-gw/ping.lambda:watch": "npx projen bundle:stacks/api-gw/ping.lambda:watch",
+    "bundle:stacks/api/routes/ping/ping.lambda": "npx projen bundle:stacks/api/routes/ping/ping.lambda",
+    "bundle:stacks/api/routes/ping/ping.lambda:watch": "npx projen bundle:stacks/api/routes/ping/ping.lambda:watch",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
     "default": "npx projen default",

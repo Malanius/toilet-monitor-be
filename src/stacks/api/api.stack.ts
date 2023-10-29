@@ -2,14 +2,15 @@ import * as cdk from 'aws-cdk-lib';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import { Construct } from 'constructs';
 
-import { Ping } from './ping';
-import { AppInfo } from '../../constants/app-info';
+import { Ping } from './routes/ping/ping';
 
-export interface StackNameProps extends cdk.StackProps, AppInfo {}
+import { AppInfo } from '@constants/app-info';
 
-export class ApiGw extends cdk.Stack {
+export interface ApiProps extends cdk.StackProps, AppInfo {}
+
+export class Api extends cdk.Stack {
   public readonly api: apigateway.RestApi;
-  constructor(scope: Construct, id: string, props: StackNameProps) {
+  constructor(scope: Construct, id: string, props: ApiProps) {
     super(scope, id, props);
 
     const { appName, appEnv } = props;

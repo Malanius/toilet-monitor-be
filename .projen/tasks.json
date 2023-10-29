@@ -29,25 +29,25 @@
       "description": "Prepare assets",
       "steps": [
         {
-          "spawn": "bundle:stacks/api-gw/ping.lambda"
+          "spawn": "bundle:stacks/api/routes/ping/ping.lambda"
         }
       ]
     },
-    "bundle:stacks/api-gw/ping.lambda": {
-      "name": "bundle:stacks/api-gw/ping.lambda",
-      "description": "Create a JavaScript bundle from src/stacks/api-gw/ping.lambda.ts",
+    "bundle:stacks/api/routes/ping/ping.lambda": {
+      "name": "bundle:stacks/api/routes/ping/ping.lambda",
+      "description": "Create a JavaScript bundle from src/stacks/api/routes/ping/ping.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/stacks/api-gw/ping.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/stacks/api-gw/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap"
+          "exec": "esbuild --bundle src/stacks/api/routes/ping/ping.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/stacks/api/routes/ping/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap"
         }
       ]
     },
-    "bundle:stacks/api-gw/ping.lambda:watch": {
-      "name": "bundle:stacks/api-gw/ping.lambda:watch",
-      "description": "Continuously update the JavaScript bundle from src/stacks/api-gw/ping.lambda.ts",
+    "bundle:stacks/api/routes/ping/ping.lambda:watch": {
+      "name": "bundle:stacks/api/routes/ping/ping.lambda:watch",
+      "description": "Continuously update the JavaScript bundle from src/stacks/api/routes/ping/ping.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/stacks/api-gw/ping.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/stacks/api-gw/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap --watch"
+          "exec": "esbuild --bundle src/stacks/api/routes/ping/ping.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/stacks/api/routes/ping/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap --watch"
         }
       ]
     },

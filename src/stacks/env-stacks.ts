@@ -1,10 +1,10 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
-import { ApiGw } from './api-gw/api-gw-stack';
+import { Api } from './api/api.stack';
 import { Database } from './database/database.stack';
 
-import { AppInfo } from '../constants/app-info';
+import { AppInfo } from '@constants/app-info';
 
 interface EnvStackProps extends AppInfo {}
 
@@ -22,11 +22,11 @@ export class EnvStacks extends Construct {
       },
     });
 
-    new ApiGw(this, 'api-gw', {
+    new Api(this, 'api', {
       ...props,
-      stackName: `${appName}-${appEnv}-api-gw`,
+      stackName: `${appName}-${appEnv}-api`,
       tags: {
-        component: 'api-gw',
+        component: 'api',
       },
     });
 

@@ -2,4 +2,4 @@
 **/*.js
 !.projenrc.js
 cdk.out/**
-src/stacks/api-gw/ping-function.ts
+src/stacks/api/routes/ping/ping-function.ts

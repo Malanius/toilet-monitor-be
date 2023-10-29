@@ -47,4 +47,4 @@ junit.xml
 /cdk.out/
 .cdk.staging/
 .parcel-cache/
-!/src/stacks/api-gw/ping-function.ts
+!/src/stacks/api/routes/ping/ping-function.ts

@@ -1,7 +1,7 @@
 import { App } from 'aws-cdk-lib';
 
-import { PROJECT, supportedEnvs } from './constants/app-info';
-import { EnvStacks } from './stacks/env-stacks';
+import { PROJECT, supportedEnvs } from '@constants/app-info';
+import { EnvStacks } from '@stacks/env-stacks';
 
 const app = new App();
 
