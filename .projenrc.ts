@@ -54,6 +54,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
   deps: [
     '@aws-sdk/client-api-gateway',
+    '@aws-sdk/client-dynamodb',
     '@middy/core',
     '@middy/http-error-handler',
     '@middy/util',

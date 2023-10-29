@@ -2,7 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
 import { ApiGw } from './api-gw/api-gw-stack';
-import { Database } from './database/database';
+import { Database } from './database/database.stack';
 
 import { AppInfo } from '../constants/app-info';
 

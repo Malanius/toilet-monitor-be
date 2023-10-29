@@ -141,6 +141,10 @@
       "type": "runtime"
     },
     {
+      "name": "@aws-sdk/client-dynamodb",
+      "type": "runtime"
+    },
+    {
       "name": "@middy/core",
       "type": "runtime"
     },
