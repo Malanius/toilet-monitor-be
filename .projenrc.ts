@@ -18,7 +18,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   projenrcTs: true,
 
   lambdaOptions: {
-    runtime: awscdk.LambdaRuntime.NODEJS_16_X,
+    runtime: awscdk.LambdaRuntime.NODEJS_18_X,
     bundlingOptions: {
       externals: [
         '@aws-lambda-powertools/commons',
@@ -56,7 +56,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     '@middy/core',
     '@middy/http-error-handler',
     '@middy/util',
-    'aws-sdk',
+    '@aws-sdk/client-api-gateway',
     `@aws-lambda-powertools/commons@${powertoolsVersion}`,
     `@aws-lambda-powertools/logger@${powertoolsVersion}`,
     `@aws-lambda-powertools/metrics@${powertoolsVersion}`,

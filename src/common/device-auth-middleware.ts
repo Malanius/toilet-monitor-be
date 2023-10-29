@@ -1,13 +1,17 @@
 import { MiddyLikeRequest } from '@aws-lambda-powertools/commons';
+import {
+  APIGatewayClient,
+  GetApiKeyCommand,
+} from '@aws-sdk/client-api-gateway';
 import { MiddlewareObj } from '@middy/core';
 import { createError } from '@middy/util';
-import { APIGatewayProxyEvent } from 'aws-lambda';
-import { APIGateway } from 'aws-sdk';
+import type { APIGatewayProxyEvent } from 'aws-lambda';
+
 import { DeviceContext } from './device-context';
 
 import { logger, tracer } from './powertools';
 
-const apiGateway = tracer.captureAWSClient(new APIGateway());
+const apiGateway = tracer.captureAWSv3Client(new APIGatewayClient());
 const KEY_PREFIX = process.env.KEY_PREFIX || 'toilet-';
 
 // TODO: maybe figure out a way to use middy cache instead of this?
@@ -16,9 +20,13 @@ const cachedKeys: { [key: string]: string } = {};
 
 const fetchApiKey = async (callingKeyId: string): Promise<string> => {
   logger.debug('Retrieving key ID info.');
-  const keyDetails = await apiGateway
-    .getApiKey({ apiKey: callingKeyId })
-    .promise();
+
+  const command = new GetApiKeyCommand({
+    apiKey: callingKeyId,
+  });
+  const keyDetails = await apiGateway.send(command);
+
+  logger.debug('Key details retrieved.', JSON.stringify(keyDetails));
 
   // Need to check for undefined here because the API Gateway SDK doesn't
   // althoug key name is required when creating an API key.
@@ -38,7 +46,7 @@ export const deviceAuthMiddleware = (): MiddlewareObj => {
     const event = request.event as APIGatewayProxyEvent;
     const callingKeyId = event.requestContext.identity.apiKeyId;
     if (!callingKeyId) {
-      // This should not happen behind API GW as endpoinds should have API key required
+      // This should not happen behind API GW as endpoints should have API key required
       // but may on direct invoke or test invoke without proper payload.
       logger.warn('API key ID missing!');
       throw createError(401, 'API key ID missing!');
