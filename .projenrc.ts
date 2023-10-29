@@ -53,10 +53,11 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   },
 
   deps: [
+    '@aws-sdk/client-api-gateway',
     '@middy/core',
     '@middy/http-error-handler',
     '@middy/util',
-    '@aws-sdk/client-api-gateway',
+    'electrodb',
     `@aws-lambda-powertools/commons@${powertoolsVersion}`,
     `@aws-lambda-powertools/logger@${powertoolsVersion}`,
     `@aws-lambda-powertools/metrics@${powertoolsVersion}`,

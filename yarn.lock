@@ -332,6 +332,14 @@
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
 
+"@aws-sdk/lib-dynamodb@^3.395.0":
+  version "3.438.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/lib-dynamodb/-/lib-dynamodb-3.438.0.tgz#af09ced5e93f134a8552325098ce70b158554176"
+  integrity sha512-LJXfLabOLytVLBWHVdiPHZCR8RSNCLzaadyLovVXrAPe+c2mbpyUJ+ojO0fB1AlVJnfxcDZLskzUYSP4sw0v5w==
+  dependencies:
+    "@aws-sdk/util-dynamodb" "3.438.0"
+    tslib "^2.5.0"
+
 "@aws-sdk/middleware-host-header@3.433.0":
   version "3.433.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-host-header/-/middleware-host-header-3.433.0.tgz#3b6687ee4021c2b56c96cff61b45a33fb762b1c7"
@@ -465,6 +473,13 @@
   integrity sha512-0jEE2mSrNDd8VGFjTc1otYrwYPIkzZJEIK90ZxisKvQ/EURGBhNzWn7ejWB9XCMFT6XumYLBR0V9qq5UPisWtA==
   dependencies:
     "@smithy/types" "^2.4.0"
+    tslib "^2.5.0"
+
+"@aws-sdk/util-dynamodb@3.438.0":
+  version "3.438.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/util-dynamodb/-/util-dynamodb-3.438.0.tgz#c587a41849dd5b53a43629457ba7300cf1b82836"
+  integrity sha512-K0r30mLy3iQe3qQVJxJAp+eOuoCmrO5KVodBoC5VT1ivjtYIgGxzUWphKhaqcASjmaE+Lg0UjHKjxWGOyAEC4A==
+  dependencies:
     tslib "^2.5.0"
 
 "@aws-sdk/util-endpoints@3.438.0":
@@ -3425,6 +3440,14 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.yarnpkg.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
+electrodb@^2.10.4:
+  version "2.10.4"
+  resolved "https://registry.yarnpkg.com/electrodb/-/electrodb-2.10.4.tgz#d16ed3d49067e5badc2cfb141996cbfdbcd7361f"
+  integrity sha512-0e6oIMucfHIkWhgK9Bb073jFeVmtoIijDCoCP2ikl33+DoO2Vt5/3joZ8Wy+nZQ65AbGayOPhzVYmZpW5b4YaQ==
+  dependencies:
+    "@aws-sdk/lib-dynamodb" "^3.395.0"
+    jsonschema "1.2.7"
+
 electron-to-chromium@^1.4.535:
   version "1.4.569"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.569.tgz#1298b67727187ffbaac005a7425490d157f3ad03"
@@ -5344,6 +5367,11 @@ jsonparse@^1.2.0, jsonparse@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/jsonparse/-/jsonparse-1.3.1.tgz#3f4dae4a91fac315f71062f8521cc239f1366280"
   integrity sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==
+
+jsonschema@1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/jsonschema/-/jsonschema-1.2.7.tgz#4e6d6dc4d83dc80707055ba22c00ec6152c0e6e9"
+  integrity sha512-3dFMg9hmI9LdHag/BRIhMefCfbq1hicvYMy8YhZQorAdzOzWz7NjniSpn39yjpzUAMIWtGyyZuH2KNBloH7ZLw==
 
 jsonschema@^1.4.1:
   version "1.4.1"
