@@ -153,7 +153,23 @@
       "type": "runtime"
     },
     {
+      "name": "@middy/http-event-normalizer",
+      "type": "runtime"
+    },
+    {
+      "name": "@middy/http-header-normalizer",
+      "type": "runtime"
+    },
+    {
+      "name": "@middy/http-json-body-parser",
+      "type": "runtime"
+    },
+    {
       "name": "@middy/util",
+      "type": "runtime"
+    },
+    {
+      "name": "@middy/validator",
       "type": "runtime"
     },
     {

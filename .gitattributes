@@ -15,6 +15,7 @@
 /LICENSE linguist-generated
 /package.json linguist-generated
 /src/stacks/api/routes/ping/ping-function.ts linguist-generated
+/src/stacks/api/routes/status/status-function.ts linguist-generated
 /tsconfig.dev.json linguist-generated
 /tsconfig.json linguist-generated
 /yarn.lock linguist-generated

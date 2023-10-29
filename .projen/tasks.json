@@ -30,6 +30,9 @@
       "steps": [
         {
           "spawn": "bundle:stacks/api/routes/ping/ping.lambda"
+        },
+        {
+          "spawn": "bundle:stacks/api/routes/status/status.lambda"
         }
       ]
     },
@@ -48,6 +51,24 @@
       "steps": [
         {
           "exec": "esbuild --bundle src/stacks/api/routes/ping/ping.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/stacks/api/routes/ping/ping.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap --watch"
+        }
+      ]
+    },
+    "bundle:stacks/api/routes/status/status.lambda": {
+      "name": "bundle:stacks/api/routes/status/status.lambda",
+      "description": "Create a JavaScript bundle from src/stacks/api/routes/status/status.lambda.ts",
+      "steps": [
+        {
+          "exec": "esbuild --bundle src/stacks/api/routes/status/status.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/stacks/api/routes/status/status.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap"
+        }
+      ]
+    },
+    "bundle:stacks/api/routes/status/status.lambda:watch": {
+      "name": "bundle:stacks/api/routes/status/status.lambda:watch",
+      "description": "Continuously update the JavaScript bundle from src/stacks/api/routes/status/status.lambda.ts",
+      "steps": [
+        {
+          "exec": "esbuild --bundle src/stacks/api/routes/status/status.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/stacks/api/routes/status/status.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-lambda-powertools/commons --external:@aws-lambda-powertools/logger --external:@aws-lambda-powertools/metrics --external:@aws-lambda-powertools/tracer --external:aws-sdk --sourcemap --watch"
         }
       ]
     },
@@ -252,13 +273,13 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/aws-lambda,@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,esbuild,eslint-config-prettier,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,jest,jest-junit,npm-check-updates,prettier,projen,ts-jest,ts-node,typescript,@aws-sdk/client-api-gateway,@aws-sdk/client-dynamodb,@middy/core,@middy/http-error-handler,@middy/util,constructs,electrodb"
+          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/aws-lambda,@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,esbuild,eslint-config-prettier,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,jest,jest-junit,npm-check-updates,prettier,projen,ts-jest,ts-node,typescript,@aws-sdk/client-api-gateway,@aws-sdk/client-dynamodb,@middy/core,@middy/http-error-handler,@middy/http-event-normalizer,@middy/http-header-normalizer,@middy/http-json-body-parser,@middy/util,@middy/validator,constructs,electrodb"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/aws-lambda @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser esbuild eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit npm-check-updates prettier projen ts-jest ts-node typescript @aws-sdk/client-api-gateway @aws-sdk/client-dynamodb @middy/core @middy/http-error-handler @middy/util constructs electrodb"
+          "exec": "yarn upgrade @types/aws-lambda @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser esbuild eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit npm-check-updates prettier projen ts-jest ts-node typescript @aws-sdk/client-api-gateway @aws-sdk/client-dynamodb @middy/core @middy/http-error-handler @middy/http-event-normalizer @middy/http-header-normalizer @middy/http-json-body-parser @middy/util @middy/validator constructs electrodb"
         },
         {
           "exec": "npx projen"

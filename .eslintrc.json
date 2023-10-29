@@ -59,6 +59,7 @@
           "**/test/**",
           "**/build-tools/**",
           "src/stacks/api/routes/ping/ping.lambda.ts",
+          "src/stacks/api/routes/status/status.lambda.ts",
           ".projenrc.ts",
           "projenrc/**/*.ts"
         ],

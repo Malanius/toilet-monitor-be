@@ -3,6 +3,7 @@ import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import { Construct } from 'constructs';
 
 import { Ping } from './routes/ping/ping';
+import { Status } from './routes/status/status';
 
 import { AppInfo } from '@constants/app-info';
 
@@ -40,7 +41,14 @@ export class Api extends cdk.Stack {
       stage: api.deploymentStage,
     });
 
+    // /ping
     new Ping(this, 'Ping', {
+      ...props,
+      api,
+    });
+
+    // /status
+    new Status(this, 'Status', {
       ...props,
       api,
     });
