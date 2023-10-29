@@ -7,7 +7,10 @@ import { Construct } from 'constructs';
 import { PingFunction } from './ping-function';
 
 import { commonLambdaFunctionProps } from '../../common/lambda-props';
-import { powertoolsConfig } from '../../common/powertools-config';
+import {
+  powertoolsConfig,
+  powertoolsLayerArn,
+} from '../../common/powertools-config';
 import { AppInfo } from '../../constants/app-info';
 
 export interface PingProps extends AppInfo {
@@ -25,7 +28,7 @@ export class Ping extends Construct {
     const powertoolsLayer = lambda.LayerVersion.fromLayerVersionArn(
       this,
       'PowertoolsLayer',
-      `arn:aws:lambda:${region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:7`
+      powertoolsLayerArn(region)
     );
 
     const pingHandler = new PingFunction(this, 'PingHandler', {

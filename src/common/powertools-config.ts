@@ -13,3 +13,7 @@ export const powertoolsConfig = (
     LOG_LEVEL: appEnv === AppEnv.PROD ? 'WARN' : 'DEBUG',
   };
 };
+
+export const powertoolsLayerArn = (region: string): string => {
+  return `arn:aws:lambda:${region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:21`;
+};

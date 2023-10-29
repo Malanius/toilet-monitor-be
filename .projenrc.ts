@@ -2,6 +2,7 @@ import { awscdk } from 'projen';
 import { TrailingComma } from 'projen/lib/javascript';
 
 const cdkVersion = '2.103.1';
+const powertoolsVersion = '1.14.0';
 
 const project = new awscdk.AwsCdkTypeScriptApp({
   name: 'toilet-monitor-be',
@@ -52,16 +53,16 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   },
 
   deps: [
-    // Theese has to be there so eslint doesn't complain on import in lambda functions
-    '@aws-lambda-powertools/commons',
-    '@aws-lambda-powertools/logger',
-    '@aws-lambda-powertools/metrics',
-    '@aws-lambda-powertools/tracer',
     '@middy/core',
     '@middy/http-error-handler',
     '@middy/util',
+    // Theese has to be there so eslint doesn't complain on import in lambda functions
     '@types/aws-lambda',
     'aws-sdk',
+    `@aws-lambda-powertools/commons@${powertoolsVersion}`,
+    `@aws-lambda-powertools/logger@${powertoolsVersion}`,
+    `@aws-lambda-powertools/metrics@${powertoolsVersion}`,
+    `@aws-lambda-powertools/tracer@${powertoolsVersion}`,
   ],
 
   devDeps: [

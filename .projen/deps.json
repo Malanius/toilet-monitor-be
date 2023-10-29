@@ -114,18 +114,22 @@
     },
     {
       "name": "@aws-lambda-powertools/commons",
+      "version": "1.14.0",
       "type": "runtime"
     },
     {
       "name": "@aws-lambda-powertools/logger",
+      "version": "1.14.0",
       "type": "runtime"
     },
     {
       "name": "@aws-lambda-powertools/metrics",
+      "version": "1.14.0",
       "type": "runtime"
     },
     {
       "name": "@aws-lambda-powertools/tracer",
+      "version": "1.14.0",
       "type": "runtime"
     },
     {
