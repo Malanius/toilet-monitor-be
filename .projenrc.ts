@@ -1,7 +1,7 @@
 import { awscdk } from 'projen';
 import { TrailingComma } from 'projen/lib/javascript';
 
-const cdkVersion = '2.83.0';
+const cdkVersion = '2.103.1';
 
 const project = new awscdk.AwsCdkTypeScriptApp({
   name: 'toilet-monitor-be',
