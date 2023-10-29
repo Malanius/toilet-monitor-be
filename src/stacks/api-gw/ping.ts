@@ -52,18 +52,10 @@ export class Ping extends Construct {
     const pingResource = api.root.addResource('ping');
     const pingIntegration = new apigateway.LambdaIntegration(pingHandler, {
       allowTestInvoke: true,
-      passthroughBehavior: apigateway.PassthroughBehavior.NEVER,
-      requestTemplates: {
-        'application/json': '{"statusCode": 200}',
-      },
+      proxy: true,
     });
     pingResource.addMethod('GET', pingIntegration, {
       apiKeyRequired: true,
-      methodResponses: [
-        {
-          statusCode: '200',
-        },
-      ],
     });
   }
 }
