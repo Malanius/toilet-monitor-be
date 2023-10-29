@@ -2,7 +2,7 @@ import { injectLambdaContext } from '@aws-lambda-powertools/logger';
 import { captureLambdaHandler } from '@aws-lambda-powertools/tracer';
 import middy from '@middy/core';
 import httpErrorHandlerMiddleware from '@middy/http-error-handler';
-import { APIGatewayProxyHandler } from 'aws-lambda';
+import type { APIGatewayProxyHandler } from 'aws-lambda';
 
 import { deviceAuthMiddleware } from '../../common/device-auth-middleware';
 import { DeviceContext } from '../../common/device-context';

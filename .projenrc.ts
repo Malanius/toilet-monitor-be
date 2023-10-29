@@ -56,8 +56,6 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     '@middy/core',
     '@middy/http-error-handler',
     '@middy/util',
-    // Theese has to be there so eslint doesn't complain on import in lambda functions
-    '@types/aws-lambda',
     'aws-sdk',
     `@aws-lambda-powertools/commons@${powertoolsVersion}`,
     `@aws-lambda-powertools/logger@${powertoolsVersion}`,
@@ -68,6 +66,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   devDeps: [
     '@commitlint/cli@17.0.2',
     '@commitlint/config-conventional@17.0.2',
+    '@types/aws-lambda',
     'cz-conventional-changelog@3.3.0',
     'husky@8.0.1',
     'lint-staged@13.0.1',
