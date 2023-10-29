@@ -252,25 +252,13 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,aws-cdk,cz-conventional-changelog,husky,lint-staged,aws-cdk-lib'"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,aws-cdk,cz-conventional-changelog,husky,lint-staged,aws-cdk-lib'"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,aws-cdk,cz-conventional-changelog,husky,lint-staged,aws-cdk-lib'"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,aws-cdk,cz-conventional-changelog,husky,lint-staged,aws-cdk-lib'"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@commitlint/cli,@commitlint/config-conventional,aws-cdk,cz-conventional-changelog,husky,lint-staged,aws-cdk-lib'"
+          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,esbuild,eslint-config-prettier,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,jest,jest-junit,npm-check-updates,prettier,projen,ts-jest,ts-node,typescript,@aws-lambda-powertools/commons,@aws-lambda-powertools/logger,@aws-lambda-powertools/metrics,@aws-lambda-powertools/tracer,@middy/core,@middy/http-error-handler,@middy/util,@types/aws-lambda,aws-sdk,constructs"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade"
+          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser esbuild eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit npm-check-updates prettier projen ts-jest ts-node typescript @aws-lambda-powertools/commons @aws-lambda-powertools/logger @aws-lambda-powertools/metrics @aws-lambda-powertools/tracer @middy/core @middy/http-error-handler @middy/util @types/aws-lambda aws-sdk constructs"
         },
         {
           "exec": "npx projen"
