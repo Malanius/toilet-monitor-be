@@ -66,6 +66,7 @@ export const deviceAuthMiddleware = (): MiddlewareObj => {
     logger.debug('Key found and valid.');
 
     const context = request.context as DeviceContext;
+    context.deviceId = callingKeyId;
     context.deviceName = keyName;
   };
 
